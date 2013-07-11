@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'pry'
 require './bacon.rb'
 
 describe "bacon.rb" do
