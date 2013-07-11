@@ -1,4 +1,4 @@
-Bacon
+Bacon [![Build Status](https://travis-ci.org/kaleworsley/bacon.png?branch=master)](https://travis-ci.org/kaleworsley/bacon)
 =====
 
 Bacon.
