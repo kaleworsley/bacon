@@ -1,4 +1,3 @@
-require 'pry'
 require 'set'
 
 class Actor
@@ -66,6 +65,10 @@ class ActorList
     self.actors << actor
     actor
   end
+
+  def find(name)
+    actors.find {|a| a.name == name } || add_actor(Actor.new(name))
+  end
 end
 
 class FilmList
@@ -82,28 +85,3 @@ class FilmList
     films.find {|f| f.title == title } || add_film(Film.new(title))
   end
 end
-
-actors = ActorList.new
-films = FilmList.new
-
-kevin = Actor.new("Kevin Bacon")
-actors.add_actor(kevin).tap do |actor|
-  actor.add_film(films.find('flatliners'))
-end
-
-actors.add_actor(Actor.new("Kiefer")).tap do |actor|
-  actor.add_film(films.find('cheesemongers'))
-  actor.add_film(films.find('flatliners'))
-end
-
-bruce = Actor.new("Bruce")
-actors.add_actor(bruce).tap do |actor|
-  actor.add_film(films.find('cheesemongers'))
-end
-
-#puts bruce.distance_from(kevin)
-
-binding.pry
-
-
-
